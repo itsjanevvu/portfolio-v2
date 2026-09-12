@@ -1,0 +1,236 @@
+import {
+  CaseStudyHeader,
+  MetaPanel,
+  MetaItem,
+  SectionText,
+  StatsRow,
+  StatCard,
+  FindingsList,
+  FindingCard,
+  Callout,
+  CaseImage,
+  CaseVideo,
+  ScreenshotItem,
+  IterationBlock,
+  Quote,
+  CaseStudyNavigator,
+} from "@/components/case-study/CaseStudyBlocks";
+
+export const metadata = {
+  title: "Reducing retailer membership churn",
+  description: "Faire internship case study.",
+};
+
+<div className="flex w-full flex-col gap-8">
+  <CaseStudyHeader
+    title="Reducing retailer membership churn"
+    eyebrow="Faire internship &bull; Shipped 2024"
+    heroLottie="/work/faire-internship/cover-lottie.json"
+  />
+
+  <div className="flex w-full flex-col items-start gap-8 md:flex-row md:gap-[89px]">
+    <SectionText
+      eyebrow="Context"
+      heading="Faire is a two-sided wholesale marketplace that connects independent retailers with local brands."
+      body={<p>Faire&rsquo;s mission is to empower retailers to strengthen the unique character of local communities and businesses.</p>}
+    />
+    <MetaPanel>
+      <MetaItem label="Timeline">1 month</MetaItem>
+      <MetaItem label="Team">
+        <p>Designer (Me)</p>
+        <p>Engineers</p>
+        <p>Product manager</p>
+        <p>Data science</p>
+      </MetaItem>
+      <MetaItem label="Constraint">No UX testing</MetaItem>
+    </MetaPanel>
+  </div>
+</div>
+
+<div className="flex w-full flex-col gap-12">
+
+<div className="flex w-full flex-col gap-8">
+  <SectionText
+    heading="Insider is a membership program where retailers get free shipping."
+    body={<p>Retailers pay a monthly fee of $19.99 to stay subscribed to the program and gain these benefits. Faire provides free shipping coverage for brands based on shipping distance and also popularity in their category.</p>}
+  />
+  <StatsRow>
+    <StatCard emoji="🛍️">Free shipping with 100+ unique brands</StatCard>
+    <StatCard emoji="🚢">No import duties and taxes on orders</StatCard>
+    <StatCard emoji="📞">Customer phone support for retailers</StatCard>
+  </StatsRow>
+</div>
+
+<Callout
+  eyebrow="Problem"
+  heading="Retailers are canceling their membership because they don't understand the value of their membership."
+  body="Annual Insider members decreased by 10% in 2024."
+/>
+
+<SectionText
+  eyebrow="Opportunity"
+  heading="Highlight financial value gained at key moments in the membership to reduce churn rates"
+/>
+
+<div className="flex w-full flex-col gap-8">
+  <SectionText
+    eyebrow="My impact"
+    heading="I re-designed the cancellation flow, decreasing monthly churn rates by 8%."
+    body={<p>As part of a larger initiative, I prioritized the cancellation flow because it was a high intent surface. My peer designers worked on earlier moments in the user journey.</p>}
+  />
+  <CaseVideo
+    src="https://www.tella.tv/video/cmf8mlmxm00000cla8k4ign50/embed"
+    title="Faire Insider cancellation flow"
+    aspect="853/480"
+  />
+</div>
+
+<div className="flex w-full flex-col gap-8">
+  <SectionText
+    eyebrow="Research"
+    heading="Through auditing all touch points, I saw there was a lack of visibility in value shown across the membership."
+  />
+  <FindingsList>
+    <FindingCard icon="❌" title="Low visibility of benefits applied to orders">
+      Users don&rsquo;t know when Insider benefits such as free shipping have been applied to their order.
+    </FindingCard>
+    <FindingCard icon="❌" title="Unclear number of Insider savings">
+      Membership savings is hidden in the account settings page.
+    </FindingCard>
+  </FindingsList>
+  <CaseImage src="/work/faire-internship/research-audit.png" alt="Audit of touch points across the Insider membership" aspect="3948/2054" />
+</div>
+
+<div className="flex w-full flex-col gap-8">
+  <SectionText
+    heading="Going deeper, the current cancellation funnel has a 98% cancellation rate"
+    body={<p>I saw that there was large room for improvement in UX copy, content and visual design. Additionally, the user flow had poor timing. The pause option was presented as the first step, when retailers don&rsquo;t even know why they should keep their membership.</p>}
+  />
+  <div className="flex w-full flex-col items-stretch gap-6 md:flex-row md:items-start">
+    <ScreenshotItem src="/work/faire-internship/pause-membership-screen.png" alt="Pause membership screen" caption="Pause membership" />
+    <ScreenshotItem src="/work/faire-internship/benefits-screen-old.jpg" alt="Old benefits screen" caption="Benefits" bordered />
+    <ScreenshotItem src="/work/faire-internship/cancellation-form-old.jpg" alt="Old cancellation form" caption="Cancellation form" bordered />
+  </div>
+</div>
+
+<div className="flex w-full flex-col gap-8">
+  <SectionText
+    eyebrow="Decision #1"
+    heading="Optimizing the flow for retention"
+    body={
+      <>
+        <p>Currently, the pause option initially appears too early in the cancellation process, making it feel abrupt. By moving it after the benefits screen, retailers are more informed about the membership and likely to consider pausing.</p>
+        <p>Additionally, retailers often have strong reasons for canceling, so it&rsquo;s crucial to add value without creating unnecessary friction. We discussed adding a discount recovery offer to the cancellation flow to address the lack of financial benefits.</p>
+      </>
+    }
+  />
+  <div className="flex w-full flex-col gap-2">
+    <p className="font-body text-body-md text-text-subdued">Before</p>
+    <div className="w-full max-w-[660px]">
+      <CaseImage src="/work/faire-internship/decision-1-before-flow.png" alt="Before: Pause, Benefits, Form, Cancelled flow" aspect="660/84" />
+    </div>
+  </div>
+  <div className="flex w-full flex-col gap-2">
+    <p className="font-body text-body-md text-text-subdued">After</p>
+    <div className="w-full max-w-[652px]">
+      <CaseImage src="/work/faire-internship/decision-1-after-flow.png" alt="After: Benefits, Pause, Offer, Form, Cancelled flow" aspect="652/230" />
+    </div>
+  </div>
+</div>
+
+<div className="flex w-full flex-col gap-8">
+  <SectionText
+    eyebrow="Decision #2"
+    heading="Communicating benefits to breaking even retailers"
+    body={<p>I identified two segments of users: Breaking even retailers vs Not breaking even retailers. I chose to start designing for breaking even retailers because Faire had the most data points and potential to win them back as customers.</p>}
+  />
+  <Quote avatarSrc="/work/faire-internship/retailer-pfp.png" name="Emily&rsquo;s Candles" role="Breaking Even Retailer">
+    &ldquo;I&rsquo;m cancelling because I don&rsquo;t understand that I&rsquo;m saving with my brands.&rdquo;
+  </Quote>
+</div>
+
+<div className="flex w-full flex-col gap-6">
+  <SectionText
+    heading="Initial design explorations"
+    body={<p>I explored two different ways to communicate retailer&rsquo;s gained financial value in their Insider membership.</p>}
+  />
+  <IterationBlock
+    label="Iteration #1"
+    title="Breaking down savings across top brands"
+    points={[
+      { positive: false, text: "Statistics don't communicate gained value." },
+      { positive: false, text: "Unclear messaging that retailers have saved a lot with the program." },
+    ]}
+    image={{ src: "/work/faire-internship/iteration-1-savings-breakdown.jpg", alt: "Iteration 1: breaking down savings across top brands", aspect: "3200/2276" }}
+  />
+  <IterationBlock
+    label="Iteration #2"
+    title="Loss aversion of free shipping with top brands"
+    points={[
+      { positive: true, text: "Strong value proposition." },
+      { positive: true, text: "Overview of free shipping brands." },
+    ]}
+    image={{ src: "/work/faire-internship/iteration-2-loss-aversion.jpg", alt: "Iteration 2: loss aversion of free shipping with top brands", aspect: "3200/2276" }}
+  />
+</div>
+
+<div className="flex w-full flex-col gap-8">
+  <SectionText
+    eyebrow="Testing"
+    heading="I shared my designs explorations with the customer success team and discovered a core insight."
+  />
+  <Callout
+    eyebrow="Insight"
+    heading="Retailers leave Insider because they struggle to find new brands that meet changing customer demand."
+    body="Retailers don't understand the scope of their free shipping coverage with brands."
+  />
+  <CaseImage src="/work/faire-internship/testing-call-screenshot.png" alt="Customer success call reviewing design explorations" aspect="3200/1964" />
+</div>
+
+<div className="flex w-full flex-col gap-8">
+  <SectionText
+    eyebrow="Final designs"
+    heading="I pivoted to helping retailers visualize the quantity of free shipping brands inside their Insider membership."
+    body={<p>I chose to display a grid of brands and tag them as top shops to emphasize quantity. I worked with product marketing to create statistics and copy for breaking even vs not breaking even retailers.</p>}
+  />
+  <div className="flex w-full flex-col gap-8">
+    <p className="font-body text-body-md text-text-subdued">Case 1: Breaking Even Retailers</p>
+    <CaseImage src="/work/faire-internship/final-case-1-breaking-even.jpg" alt="Final design for breaking even retailers" aspect="1440/1032" bordered />
+  </div>
+  <div className="flex w-full flex-col gap-8">
+    <p className="font-body text-body-md text-text-subdued">Case 2: Not Breaking Even Retailers</p>
+    <CaseImage src="/work/faire-internship/final-case-2-not-breaking-even.jpg" alt="Final design for not breaking even retailers" aspect="2880/2048" bordered />
+  </div>
+</div>
+
+<div className="flex w-full flex-col gap-8">
+  <SectionText
+    eyebrow="Mission success"
+    heading="We shipped Phase 1 of this flow to 10,000+ retailers!"
+  />
+  <CaseImage src="/work/faire-internship/mission-success-shoutout.png" alt="Team shoutout celebrating the launch" aspect="1393/468" />
+</div>
+
+<div className="flex w-full flex-col gap-8">
+  <SectionText
+    eyebrow="Reflections"
+    heading="Grateful for the journey! Here's what I learned."
+  />
+  <FindingsList>
+    <FindingCard icon="🚀" title="Data doesn't tell the entire story">
+      We had more data than we could work with. But without qualitative research, we wouldn&rsquo;t have understood the full picture of the problem.
+    </FindingCard>
+    <FindingCard icon="🚀" title="Know what type of feedback to ask for">
+      I worked with PM and engineers of all shapes; Some didn&rsquo;t want to get into the nitty gritty details of design. I also worked with senior staff designers who knew almost nothing about the project. So knowing what feedback to ask for is valuable in getting useful and good feedback.
+    </FindingCard>
+  </FindingsList>
+</div>
+
+<CaseStudyNavigator
+  title="Building a smart data import tool for scientists"
+  eyebrow="Scispot (YC S21) internship"
+  shipYear={2025}
+  href="/work/scispot-internship"
+/>
+
+</div>

@@ -1,0 +1,233 @@
+import {
+  CaseStudyHeader,
+  MetaPanel,
+  MetaItem,
+  SectionText,
+  StatsRow,
+  FindingsList,
+  FindingCard,
+  Callout,
+  CaseImage,
+  CaseVideo,
+  IterationBlock,
+  CaseStudyNavigator,
+} from "@/components/case-study/CaseStudyBlocks";
+
+export const metadata = {
+  title: "Building a smart data import tool for scientists",
+  description: "Scispot (YC S21) internship case study.",
+};
+
+<div className="flex w-full flex-col gap-8">
+  <CaseStudyHeader
+    title="Building a smart data import tool for scientists"
+    eyebrow="Scispot internship &bull; Shipped 2025"
+    heroLottie="/work/scispot-internship/cover-lottie.json"
+  />
+
+  <div className="flex w-full flex-col items-start gap-8 md:flex-row md:gap-[89px]">
+    <SectionText
+      eyebrow="Context"
+      heading="Scispot (YC S21) is an early-stage startup that builds tools to accelerate scientific research discovery in healthcare."
+      body={<p>Scispot has helped over 100+ clinical diagnostic labs document their lab samples, track experiment results and conduct analysis. In 2025, I joined the 10 person team as a product design intern.</p>}
+    />
+    <MetaPanel>
+      <MetaItem label="Timeline">1 month</MetaItem>
+      <MetaItem label="Team">
+        <p>Designer (Me)</p>
+        <p>Engineers</p>
+        <p>CPO</p>
+      </MetaItem>
+      <MetaItem label="Constraint">Fast delivery timelines</MetaItem>
+    </MetaPanel>
+  </div>
+</div>
+
+<div className="flex w-full flex-col gap-12">
+
+<div className="flex w-full flex-col gap-8">
+  <SectionText
+    heading="Scientists in clinical diagnostic labs conduct test results for patients using their blood, urine and skin samples."
+    body={<p>The resulting data is then imported back into Scispot&rsquo;s labsheet product for comprehensive analysis and used to generate a test report for patients.</p>}
+  />
+  <p className="font-body text-body-md text-text-subdued">Scispot&rsquo;s Labsheets product</p>
+  <CaseImage src="/work/scispot-internship/labsheets-product.png" alt="Scispot's Labsheets product" aspect="802/517" bordered />
+</div>
+
+<Callout
+  eyebrow="Problem"
+  heading="Scientists cannot import their test data into their Labsheet because of data type incompatibilities with Labsheet columns."
+  body="If scientists cannot import their scientific data, labs cannot generate a test result report for their patients."
+/>
+
+<div className="flex w-full flex-col gap-8">
+  <SectionText
+    eyebrow="My impact"
+    heading="I scoped and designed an AI data import tool that converts test results into structured data, reducing data import time 30%."
+  />
+  <div className="flex w-full flex-col gap-8">
+    <p className="font-body text-body-md text-text-subdued">Upload &amp; setup csv columns</p>
+    <CaseImage src="/work/scispot-internship/upload-csv-columns.gif" alt="Uploading a CSV and setting up columns in Sample Manager" aspect="1373/883" bordered />
+  </div>
+  <div className="flex w-full flex-col gap-8">
+    <p className="font-body text-body-md text-text-subdued">Map CSV to labsheet columns</p>
+    <CaseImage src="/work/scispot-internship/map-csv-columns.gif" alt="Mapping CSV columns to labsheet columns" aspect="1369/883" bordered />
+  </div>
+  <div className="flex w-full flex-col gap-8">
+    <p className="font-body text-body-md text-text-subdued">Review and correct data errors</p>
+    <CaseImage src="/work/scispot-internship/review-correct-data-errors.gif" alt="Reviewing and correcting data errors" aspect="1368/883" bordered />
+  </div>
+</div>
+
+<div className="flex w-full flex-col gap-8">
+  <SectionText
+    eyebrow="Research"
+    heading="I interviewed 3 scientists to understand why imports were failing."
+    body={<p>I wanted to understand where scientists are getting stuck in the user flow, why they are mapping their columns wrong, and why they are experiencing data import issues.</p>}
+  />
+  <CaseImage src="/work/scispot-internship/research-interview.png" alt="Video call interview with a scientist about their data import workflow" aspect="1290/690" bordered />
+</div>
+
+<div className="flex w-full flex-col gap-8">
+  <SectionText
+    heading="After conducting research, I identified three main issues with the current experience."
+    body={<p>I went through the import CSV process, audited the flow, and found the import flow to be incredibly manual and time consuming.</p>}
+  />
+  <StatsRow>
+    <FindingCard icon="❌" title="Import in wrong labsheet">
+      Scientists were choosing from 100+ labsheets.
+    </FindingCard>
+    <FindingCard icon="❌" title="Mapping to wrong columns">
+      Scientists made mistakes in manually mapping columns.
+    </FindingCard>
+    <FindingCard icon="❌" title="No error warnings">
+      No warnings about incompatible mappings.
+    </FindingCard>
+  </StatsRow>
+  <CaseVideo
+    src="https://www.tella.tv/video/old-import-csv-to-existing-labsheet-flow-5h1r/embed"
+    title="Old import CSV to existing labsheet flow"
+    aspect="853/480"
+  />
+</div>
+
+<div className="flex w-full flex-col gap-8">
+  <SectionText
+    eyebrow="Decision #1"
+    heading="Simplifying the import flow steps"
+    body={<p>Currently, there&rsquo;s so many steps in the import flow. I want to simplify the user flow as much as possible &mdash; data imports are a high frequency task that scientists need to do regularly in their workflow. I did a card sorting exercise to cut the number of total steps from 10 to 3.</p>}
+  />
+  <CaseImage src="/work/scispot-internship/simplified-flow.gif" alt="Simplified import flow: choose source, file upload, pick CSV sheet, include headers, then create, map, or ignore columns before correcting errors and importing" aspect="876/480" />
+</div>
+
+<div className="flex w-full flex-col gap-8">
+  <SectionText
+    eyebrow="Decision #2"
+    heading="Previewing column mappings during import"
+    body={<p>Scientists have dozens of columns in their test result CSVs. Without remembering the contents of their data, they frequently map CSV columns incorrectly to their labsheet columns.</p>}
+  />
+  <CaseImage src="/work/scispot-internship/column-mapping-preview.gif" alt="Previewing CSV column mappings during import" aspect="1906/1113" bordered />
+</div>
+
+<div className="flex w-full flex-col gap-8">
+  <SectionText
+    heading="Initial design explorations"
+    body={<p>I explored two designs in allowing scientists to preview their data during the mapping stage. Scientists are working with sensitive data, where even one wrong mapping can lead to a wrong test result report. So, I decided to optimize for precision in reviewing data.</p>}
+  />
+  <IterationBlock
+    label="Iteration #1"
+    title="Optimizing for scannability"
+    points={[
+      { positive: true, text: "See multiple mappings in one frame." },
+      { positive: false, text: "Easily make mistakes in reviewing data." },
+    ]}
+    image={{ src: "/work/scispot-internship/iteration-1-scannability.gif", alt: "Iteration 1: optimizing for scannability", aspect: "1255/810" }}
+  />
+  <IterationBlock
+    label="Iteration #2"
+    title="Optimizing for precision"
+    points={[
+      { positive: true, text: "Carefully review each data entry without mistakes." },
+      { positive: true, text: "Easily visualize data in column preview." },
+    ]}
+    image={{ src: "/work/scispot-internship/iteration-2-precision.gif", alt: "Iteration 2: optimizing for precision", aspect: "1363/873" }}
+  />
+</div>
+
+<div className="flex w-full flex-col gap-8">
+  <SectionText
+    eyebrow="Testing"
+    heading="I ran UX testing with scientists on my team."
+    body={<p>I gave the scientist an import CSV task and asked them to try to complete the flow from start to end without any instructions. After the session, I discovered two core findings and created iterations.</p>}
+  />
+  <Callout
+    accent
+    eyebrow="Insight #1"
+    heading="Users need to see the full data context to understand what each data entry means."
+  />
+</div>
+
+<div className="flex w-full flex-col gap-8">
+  <SectionText
+    eyebrow="Solution"
+    heading="I iterated and displayed a full data preview of the spreadsheet."
+    body={<p>Scientists can scroll horizontally in the spreadsheet to understand how the columns relate to each other.</p>}
+  />
+  <CaseImage src="/work/scispot-internship/solution-full-data-preview.gif" alt="Full data preview of the spreadsheet during column mapping" aspect="1369/883" bordered />
+</div>
+
+<Callout
+  accent
+  eyebrow="Insight #2"
+  heading="CSV files take anywhere between 2 to 30 minutes to upload."
+  body="Scientists are currently stuck on one screen waiting for the CSV process to finish."
+/>
+
+<div className="flex w-full flex-col gap-8">
+  <SectionText
+    eyebrow="Solution"
+    heading="I added a loading state to inform scientists when the CSV import will finish."
+    body={<p>I allowed scientists to return to other tasks and built a toast notification to notify users when the import is completed.</p>}
+  />
+  <CaseImage src="/work/scispot-internship/loading-state-toast.png" alt="Loading state showing the CSV import in progress" aspect="3456/2234" bordered />
+</div>
+
+<div className="flex w-full flex-col gap-8">
+  <SectionText
+    eyebrow="Mission success"
+    heading="We shipped this new AI data import tool to 100+ labs."
+    body={<p>Post-launch, we received positive response from scientists and tracked these success metrics.</p>}
+  />
+  <StatsRow>
+    <FindingCard icon="🚀" title="Cut data import time by 30%">
+      Scientists can now successfully import their test data into their Labsheet.
+    </FindingCard>
+    <FindingCard icon="🚀" title="Resolved 50% of support tickets">
+      This new feature solved major technical problems that our customers faced.
+    </FindingCard>
+  </StatsRow>
+</div>
+
+<div className="flex w-full flex-col gap-8">
+  <SectionText
+    eyebrow="Reflections"
+    heading="Grateful for the journey! Here's what I learned."
+  />
+  <FindingsList>
+    <FindingCard icon="✨" title="Quality means shipping fast">
+      This was my first time working at a fast-paced and high-growth startup! I felt uncomfortable at first making a lot of product and design decisions at an accelerated pace. But gradually I learned that shipping fast and getting the design out into the world allowed us to learn what customers really think, get feedback, and iterate on the product, turning it into something people love using.
+    </FindingCard>
+    <FindingCard icon="🛠️" title="Growing my skills as a full stack designer">
+      Through working at a startup, I learned how to execute with quality and speed. I got to wear multiple hats across product, brand and marketing in launching this new AI-powered feature, which helped me grow my skills as a well-rounded designer.
+    </FindingCard>
+  </FindingsList>
+</div>
+
+<CaseStudyNavigator
+  title="Reducing retailer membership churn"
+  eyebrow="Faire internship"
+  shipYear={2024}
+  href="/work/faire-internship"
+/>
+
+</div>

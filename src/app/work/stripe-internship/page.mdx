@@ -1,0 +1,121 @@
+import {
+  CaseStudyHeader,
+  MetaPanel,
+  MetaItem,
+  SectionText,
+  StatsRow,
+  StatCard,
+  FindingsList,
+  FindingCard,
+  Callout,
+  CaseImage,
+  CaseStudyNavigator,
+} from "@/components/case-study/CaseStudyBlocks";
+
+export const metadata = {
+  title: "Detecting fraudulent API activity for merchants",
+  description: "Stripe internship case study.",
+};
+
+<div className="flex w-full flex-col gap-8">
+  <CaseStudyHeader
+    title="Detecting fraudulent API activity for merchants"
+    eyebrow="Stripe internship &bull; Shipped 2026"
+    heroVideo="/work/stripe-internship/cover-video.mp4"
+    heroVideoStart={2}
+  />
+
+  <div className="flex w-full flex-col items-start gap-8 md:flex-row md:gap-[89px]">
+    <SectionText
+      eyebrow="Context"
+      heading="Stripe APIs let businesses build payments and financial tools directly into their products."
+      body={<p>Developers integrate Stripe&rsquo;s APIs into their company&rsquo;s applications to accept payments, manage subscriptions, issue refunds, and power other financial workflows. As these integrations grow more complex, developers need visibility into how their API requests behave and where things go wrong.</p>}
+    />
+    <MetaPanel>
+      <MetaItem label="Timeline">2 months</MetaItem>
+      <MetaItem label="Team">
+        <p>Organization Authentication Platform</p>
+        <p>Designer (Me)</p>
+        <p>Engineers</p>
+      </MetaItem>
+      <MetaItem label="Constraint">Fast turn-around</MetaItem>
+    </MetaPanel>
+  </div>
+</div>
+
+<div className="flex w-full flex-col gap-12">
+
+<Callout
+  eyebrow="Problem"
+  heading="Merchants are exposed to fraud because they currently have no visibility of the suspicious API activity with their API keys."
+  body="When API keys are leaked, attackers make API requests to merchant&rsquo;s payouts integrations and make fraudulent transactions."
+/>
+
+<div className="flex w-full flex-col gap-8">
+  <SectionText
+    eyebrow="My impact"
+    heading="I designed a new feature that flags API requests based on risk levels and enables merchants to take resolution actions."
+  />
+  <StatsRow>
+    <StatCard emoji="🚀">Reduced fraud exposure by $XXXK+</StatCard>
+    <StatCard emoji="🚀">Flagged fraudulent XXK+ API requests</StatCard>
+    <StatCard emoji="🚀">Shipped feature to GA within 2 months</StatCard>
+  </StatsRow>
+  <Callout
+    eyebrow=""
+    heading="This work is under NDA."
+    accent
+    body={
+      <>
+        Read more about this feature{" "}
+        <a href="https://support.stripe.com/questions/reviewing-unusual-api-activity" className="underline">here</a> or{" "}
+        <a href="mailto:ja2wu@uwaterloo.ca" className="underline">email me</a>{" "}
+        for more details!
+      </>
+    }
+  />
+</div>
+
+<div className="flex w-full flex-col gap-8">
+  <SectionText
+    eyebrow="Reflections"
+    heading="Interning at Stripe has pushed me to grow as a product designer."
+    body={<p>Over the summer, I was part of Stripe&rsquo;s first product design intern cohort. I interned in the NYC office as part of the Organization and Authentication Platform team. I&rsquo;m very thankful for my manager Tina Xu and intern buddy Khoi Long for supporting me.</p>}
+  />
+  <div className="flex w-full items-start gap-5">
+    <div className="flex w-[53%] flex-col gap-2">
+      <CaseImage src="/work/stripe-internship/reflections-photo-1.png" alt="New York City skyline view" aspect="415/553" />
+      <p className="font-body text-label-md text-text-subdued">Views from the NYC office</p>
+    </div>
+    <div className="flex flex-1 flex-col gap-5">
+      <div className="flex flex-col gap-2">
+        <CaseImage src="/work/stripe-internship/reflections-photo-2.png" alt="Friends together at the Golden Gate Bridge" aspect="4096/2853" />
+        <p className="font-body text-label-md text-text-subdued">Attending Stripe 101 in SF</p>
+      </div>
+      <div className="flex flex-col gap-2">
+        <CaseImage src="/work/stripe-internship/reflections-photo-3.png" alt="Stripe intern cohort working on a craft project together" aspect="1024/772" />
+        <p className="font-body text-label-md text-text-subdued">Product design intern onsite</p>
+      </div>
+    </div>
+  </div>
+  <FindingsList>
+    <FindingCard icon="🤖" title="I became an AI savvy designer">
+      At Stripe, I gained firsthand insight in how the top designers in tech were using AI. I used AI tools such as Claude to do deep research into the API space, understand the existing codebase, ideate on UI components and prototype designs to share out with stakeholders. I walk away from this experience as an AI product designer.
+    </FindingCard>
+    <FindingCard icon="⚙️" title="I learned how to think in systems and build system behaviours">
+      I mapped how developers move from awareness → investigation → action, then identified other key surfaces across Workbench where fraud signals could be embedded directly into their existing workflows.
+    </FindingCard>
+    <FindingCard icon="🤝🏻" title="I drove alignment between cross functional teams">
+      This feature required alignment between 3 different engineering teams. As the DRI designer on the project without a dedicated product manager, I drove alignment in technical requirements by sharing and presenting my work every week. I broke down milestones for how this feature can be rolled out.
+    </FindingCard>
+  </FindingsList>
+</div>
+
+<CaseStudyNavigator
+  title="Reducing retailer membership churn"
+  eyebrow="Faire internship"
+  shipYear={2024}
+  href="/work/faire-internship"
+/>
+
+</div>

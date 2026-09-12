@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
+import { LoadingIntro } from "@/components/LoadingIntro";
+import { CustomCursor } from "@/components/CustomCursor";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -12,6 +15,12 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const magnaEF = localFont({
+  src: "./fonts/MagnaEF-Light.otf",
+  variable: "--font-magna-ef",
+  weight: "300",
+});
+
 export const metadata: Metadata = {
   title: "Jane Wu — Product Design Portfolio",
   description: "Product design & design engineering case studies.",
@@ -21,9 +30,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${magnaEF.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <LoadingIntro />
+        <CustomCursor />
+        {children}
+      </body>
     </html>
   );
 }
