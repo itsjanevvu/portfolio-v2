@@ -2,6 +2,12 @@
 
 import { useEffect, useRef, useState } from "react";
 
+declare global {
+  interface Window {
+    __introDone?: boolean;
+  }
+}
+
 // A one-time full-screen intro animation that plays on first page load:
 // a grid of dots wipes in left-to-right, then two circular ripple waves
 // travel out from the center brightening dots they pass through, before
@@ -95,6 +101,8 @@ export function LoadingIntro() {
       if (elapsed >= totalDuration && !finished) {
         finished = true;
         cancelAnimationFrame(frameId);
+        window.__introDone = true;
+        window.dispatchEvent(new Event("intro:done"));
         setDone(true);
         return;
       }

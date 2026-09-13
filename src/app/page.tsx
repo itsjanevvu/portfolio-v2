@@ -1,9 +1,8 @@
-import Link from "next/link";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { LottiePlayer } from "@/components/LottiePlayer";
-import { HeroVideo } from "@/components/HeroVideo";
 import { StatusRotator } from "@/components/StatusRotator";
+import { PageReveal } from "@/components/PageReveal";
+import { ProjectCard } from "@/components/ProjectCard";
 import { projects } from "@/data/projects";
 
 const statusMessages = [
@@ -21,7 +20,7 @@ export default function Home() {
 
         <div className="flex flex-col gap-14">
           <div className="flex flex-col gap-[32px]">
-            <div className="flex flex-col gap-[32px]">
+            <PageReveal delay={1000} className="flex flex-col gap-[32px]">
               <p className="font-heading text-display-lg font-normal text-text-heading-accent">
                 Jane Wu is a product designer who transforms complex systems
                 into simple delightful experiences.
@@ -35,45 +34,18 @@ export default function Home() {
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src="/logos/scispot.png" alt="Scispot" width={72} height={47} className="h-[47px] w-auto" />
               </div>
-            </div>
+            </PageReveal>
 
-            <StatusRotator messages={statusMessages} />
+            <PageReveal delay={2000}>
+              <StatusRotator messages={statusMessages} />
+            </PageReveal>
           </div>
 
           <div className="flex flex-col gap-[20vh]">
             {projects.map((project) => (
-              <Link
-                key={project.slug}
-                href={`/work/${project.slug}`}
-                className={
-                  project.coverLottie || project.coverVideo
-                    ? "group cursor-spin flex flex-col gap-[14px]"
-                    : "group cursor-spin flex h-[80vh] flex-col gap-[14px]"
-                }
-              >
-                {project.coverLottie ? (
-                  <LottiePlayer
-                    src={project.coverLottie}
-                    className="aspect-[4/3] w-full rounded-[8px] border border-border-default bg-background-offset transition-opacity group-hover:opacity-70"
-                  />
-                ) : project.coverVideo ? (
-                  <HeroVideo
-                    src={project.coverVideo}
-                    startTime={project.coverVideoStart}
-                    className="aspect-[4/3] w-full rounded-[8px] border border-border-default bg-background-offset object-cover transition-opacity group-hover:opacity-70"
-                  />
-                ) : (
-                  <div className="w-full flex-1 rounded-[8px] border border-border-default bg-background-offset transition-opacity group-hover:opacity-70" />
-                )}
-                <div className="flex flex-col gap-2 font-body">
-                  <p className="text-body-md uppercase text-text-subdued">
-                    {project.eyebrow} &bull; Shipped {project.shipYear}
-                  </p>
-                  <p className="font-heading text-[32px] font-normal leading-[normal] text-text-heading-accent">
-                    {project.title}
-                  </p>
-                </div>
-              </Link>
+              <PageReveal key={project.slug} delay={3000}>
+                <ProjectCard project={project} />
+              </PageReveal>
             ))}
           </div>
         </div>

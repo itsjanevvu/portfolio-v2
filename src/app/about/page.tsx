@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { PageReveal } from "@/components/PageReveal";
 
 export const metadata: Metadata = {
   title: "About — Jane Wu",
@@ -101,7 +102,7 @@ export default function AboutPage() {
         <Navbar current="about" />
 
         <div className="flex flex-col gap-[90px]">
-          <div className="flex w-full items-start gap-[32px]">
+          <PageReveal delay={1000} className="flex w-full items-start gap-[32px]">
             <div className="flex min-w-0 flex-1 flex-col items-start gap-[20px]">
               <p className="font-heading text-display-md font-normal text-text-heading-accent">
                 Hi, it&rsquo;s nice to meet you!
@@ -122,10 +123,13 @@ export default function AboutPage() {
               alt="Jane Wu"
               className="h-[358px] w-[338px] shrink-0 rounded-[8px] border border-border-default object-cover"
             />
-          </div>
+          </PageReveal>
 
           <div className="flex flex-col gap-[100px]">
-            <div className="flex w-full flex-col items-start gap-[32px]">
+            <PageReveal
+              delay={2000}
+              className="flex w-full flex-col items-start gap-[32px]"
+            >
               <div className="flex w-full flex-col items-start gap-2">
                 <p className="font-heading text-[32px] font-normal leading-[normal] text-text-heading-accent">
                   I like to build fun things
@@ -139,9 +143,12 @@ export default function AboutPage() {
                 <GalleryRow images={funThingsRowOne} />
                 <GalleryRow images={funThingsRowTwo} />
               </div>
-            </div>
+            </PageReveal>
 
-            <div className="flex w-full flex-col items-start gap-[32px]">
+            <PageReveal
+              trigger="scroll"
+              className="flex w-full flex-col items-start gap-[32px]"
+            >
               <div className="flex w-full flex-col items-start gap-2">
                 <p className="font-heading text-[32px] font-normal leading-[normal] text-text-heading-accent">
                   I love to read &amp; discuss classical fiction
@@ -162,7 +169,7 @@ export default function AboutPage() {
                   />
                 ))}
               </div>
-            </div>
+            </PageReveal>
           </div>
         </div>
 
