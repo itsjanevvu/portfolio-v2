@@ -78,10 +78,10 @@ export function BookShelf({ books }: { books: Book[] }) {
             aria-label={`Jump to ${book.alt}`}
             aria-current={index === activeIndex}
             onClick={() => scrollToIndex(index)}
-            className={`h-2 shrink-0 rounded-full transition-all ${
+            className={`size-2 shrink-0 rounded-full transition-colors ${
               index === activeIndex
-                ? "w-5 bg-text-action-primary"
-                : "w-2 bg-border-default"
+                ? "bg-text-action-primary"
+                : "bg-border-default"
             }`}
           />
         ))}
