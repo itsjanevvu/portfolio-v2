@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { PageReveal } from "@/components/PageReveal";
+import { BookShelf } from "@/components/BookShelf";
 
 export const metadata: Metadata = {
   title: "About — Jane Wu",
@@ -66,12 +67,12 @@ const bookCovers = [
 
 function GalleryRow({ images }: { images: GalleryImage[] }) {
   return (
-    <div className="flex w-full items-start gap-[16px]">
+    <div className="flex w-full flex-col items-start gap-[15px] sm:flex-row sm:gap-[16px]">
       {images.map((image) => (
         <div
           key={image.src}
-          className="flex flex-col items-start gap-2"
-          style={{ flex: image.grow }}
+          className="flex w-full flex-col items-start gap-2 sm:w-auto sm:flex-[var(--grow)]"
+          style={{ "--grow": image.grow } as React.CSSProperties}
         >
           <div
             className="w-full overflow-hidden"
@@ -102,7 +103,10 @@ export default function AboutPage() {
         <Navbar current="about" />
 
         <div className="flex flex-col gap-[90px]">
-          <PageReveal delay={1000} className="flex w-full items-start gap-[32px]">
+          <PageReveal
+            delay={1000}
+            className="flex w-full flex-col items-start gap-[32px] md:flex-row"
+          >
             <div className="flex min-w-0 flex-1 flex-col items-start gap-[20px]">
               <p className="font-heading text-display-md font-normal text-text-heading-accent">
                 Hi, it&rsquo;s nice to meet you!
@@ -121,7 +125,7 @@ export default function AboutPage() {
             <img
               src="/about/profile-photo.jpg"
               alt="Jane Wu"
-              className="h-[358px] w-[338px] shrink-0 rounded-[8px] border border-border-default object-cover"
+              className="aspect-[338/358] h-auto w-full max-w-[338px] shrink-0 rounded-[8px] border border-border-default object-cover md:h-[358px] md:w-[338px]"
             />
           </PageReveal>
 
@@ -158,17 +162,7 @@ export default function AboutPage() {
                   bookshelf. I love to write and discuss themes.
                 </p>
               </div>
-              <div className="flex h-[235px] w-full items-start gap-[16px]">
-                {bookCovers.map((book) => (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img
-                    key={book.src}
-                    src={book.src}
-                    alt={book.alt}
-                    className="h-full flex-1 object-cover"
-                  />
-                ))}
-              </div>
+              <BookShelf books={bookCovers} />
             </PageReveal>
           </div>
         </div>
