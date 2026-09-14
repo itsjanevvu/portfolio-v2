@@ -129,3 +129,14 @@ html.custom-cursor-active,
 html.custom-cursor-active * {
   cursor: none !important;
 }
+
+/* Hides scrollbars on horizontally-scrolling carousels (e.g. BookShelf)
+   while keeping the element natively scrollable/swipeable. */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}

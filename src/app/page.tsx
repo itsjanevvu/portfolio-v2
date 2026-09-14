@@ -28,11 +28,11 @@ export default function Home() {
 
               <div className="flex items-center gap-[27px]">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/logos/stripe.png" alt="Stripe" width={77} height={32} className="h-[32px] w-auto" />
+                <img src="/logos/stripe.png" alt="Stripe" width={77} height={32} className="h-[36px] w-auto" />
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/logos/faire.png" alt="Faire" width={135} height={46} className="h-[46px] w-auto" />
+                <img src="/logos/faire.png" alt="Faire" width={135} height={46} className="h-[36px] w-auto" />
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/logos/scispot.png" alt="Scispot" width={72} height={47} className="h-[47px] w-auto" />
+                <img src="/logos/ycombinator.png" alt="Y Combinator" width={72} height={72} className="h-[36px] w-auto" />
               </div>
             </PageReveal>
 
