@@ -16,8 +16,7 @@ export const projects: Project[] = [
     eyebrow: "Stripe internship",
     shipYear: 2026,
     title: "Detecting fraudulent API activity for merchants",
-    coverVideo: "/work/stripe-internship/cover-video.mp4",
-    coverVideoStart: 2,
+    coverLottie: "/work/stripe-internship/cover-lottie.json",
   },
   {
     slug: "faire-internship",

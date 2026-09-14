@@ -16,7 +16,12 @@ export function HeroVideo({
       src={src}
       autoPlay
       muted
+      loop
       playsInline
+      disablePictureInPicture
+      disableRemotePlayback
+      controlsList="nodownload noplaybackrate nofullscreen noremoteplayback"
+      onContextMenu={(e) => e.preventDefault()}
       className={className}
       onLoadedMetadata={(e) => {
         e.currentTarget.currentTime = startTime;
@@ -24,6 +29,9 @@ export function HeroVideo({
       onCanPlayThrough={onReady}
       onEnded={(e) => {
         e.currentTarget.currentTime = startTime;
+        e.currentTarget.play();
+      }}
+      onPause={(e) => {
         e.currentTarget.play();
       }}
     />
