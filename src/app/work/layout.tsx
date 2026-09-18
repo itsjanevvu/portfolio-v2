@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { BackToTopButton } from "@/components/BackToTopButton";
 
 export default function WorkLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -7,6 +8,7 @@ export default function WorkLayout({ children }: { children: React.ReactNode }) 
       <Navbar />
       <article className="flex flex-col gap-[90px]">{children}</article>
       <Footer />
+      <BackToTopButton />
     </main>
   );
 }

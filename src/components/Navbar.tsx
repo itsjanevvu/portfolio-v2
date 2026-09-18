@@ -9,7 +9,10 @@ export function Navbar({
   current?: "work" | "about";
 }) {
   return (
-    <nav className="flex w-full items-center justify-between font-body text-label-md text-text-subdued">
+    <nav
+      id="site-navbar"
+      className="flex w-full items-center justify-between font-body text-label-md text-text-subdued"
+    >
       <Link
         href="/"
         className="font-heading text-text-heading-accent active:font-medium active:text-text-heading-accent active:underline active:decoration-from-font active:underline-offset-2"
