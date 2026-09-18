@@ -78,6 +78,11 @@
   --text-label-md--letter-spacing: -0.15px;
 }
 
+/* Handwriting — About page polaroid caption (Figma node 307:3254). */
+@theme {
+  --font-handwriting: var(--font-caveat), "Bradley Hand", cursive;
+}
+
 /* Design system: Color
    Source: Figma (Untitled, node 1:2) — first tokens seen so far.
    Add more here as additional frames are read. */
