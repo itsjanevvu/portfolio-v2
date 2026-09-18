@@ -65,6 +65,20 @@ const bookCovers = [
   { src: "/about/book-crime-and-punishment.jpg", alt: "Crime and Punishment by Fyodor Dostoevsky" },
 ];
 
+// Decorative four-point star that overlaps a polaroid corner. The asset is
+// mirrored horizontally to match the Figma frame (node 311:3330 / 311:3334).
+function Sparkle({ className }: { className: string }) {
+  return (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src="/about/sparkle.svg"
+      alt=""
+      aria-hidden="true"
+      className={`pointer-events-none absolute h-[61px] w-[60.9px] -scale-x-100 ${className}`}
+    />
+  );
+}
+
 function GalleryRow({ images }: { images: GalleryImage[] }) {
   return (
     <div className="flex w-full flex-col items-start gap-[15px] sm:flex-row sm:gap-[16px]">
@@ -107,26 +121,58 @@ export default function AboutPage() {
             delay={1000}
             className="flex w-full flex-col items-start gap-[32px] md:flex-row"
           >
-            <div className="flex min-w-0 flex-1 flex-col items-start gap-[20px]">
-              <p className="font-heading text-display-md font-normal text-text-heading-accent">
+            <div className="flex min-w-0 flex-1 flex-col items-start gap-[24px]">
+              <p className="font-heading text-display-md font-normal text-[#312b88]">
                 Hi, it&rsquo;s nice to meet you!
               </p>
-              <p className="font-body text-body-md text-text-subdued">
-                I chose product design because I want to create AI tools that
-                enable humans to be more productive and healthy. Studying
-                Systems design engineering at the University of Waterloo has
-                taught me how to think in systems, diagnose problems, and
-                solve problems methodically. Across my undergrad, I&rsquo;ve
-                gotten to build in different industries across fintech,
-                healthcare and e-commerce.
-              </p>
+              <div className="flex flex-col gap-[24px] font-body text-body-md text-text-subdued">
+                <p>
+                  I&rsquo;m Jane, a product designer who loves making complex,
+                  technical systems easier to understand and use.
+                </p>
+                <p>
+                  Studying Systems Design Engineering at the University of
+                  Waterloo taught me to think in systems, breaking down
+                  complexity, and designing solutions that work as a whole.
+                  That mindset has taken me across fintech, healthcare,
+                  e-commerce, and AI.
+                </p>
+                <p>
+                  I&rsquo;m now looking for 2027 new-grad roles in spaces where
+                  I can tackle deeply technical problems with care and beauty.
+                </p>
+              </div>
+              <div className="flex items-center gap-2 font-body text-body-md text-text-subdued">
+                <span className="size-[10px] shrink-0 rounded-full bg-[#19da63]" />
+                <p>
+                  Have an interesting problem?{" "}
+                  <a
+                    href="mailto:ja2wu@uwaterloo.ca"
+                    className="underline decoration-from-font transition-colors hover:text-text-heading-accent"
+                  >
+                    Reach out.
+                  </a>
+                </p>
+              </div>
             </div>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/about/profile-photo.jpg"
-              alt="Jane Wu"
-              className="aspect-[338/358] h-auto w-full max-w-[338px] shrink-0 rounded-[8px] border border-border-default object-cover md:h-[358px] md:w-[338px]"
-            />
+
+            <div className="relative w-full max-w-[306px] shrink-0">
+              <div className="drop-shadow-[0px_4px_2px_rgba(219,219,219,0.4)]">
+                <div className="relative flex flex-col items-center gap-[20px] bg-white px-[20px] pb-[30px] pt-[20px]">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/about/profile-polaroid.jpg"
+                    alt="Jane standing by a canal in Venice"
+                    className="aspect-[266/308] w-full object-cover"
+                  />
+                  <p className="font-handwriting text-[20px] leading-5 text-black">
+                    Nice to meet you!
+                  </p>
+                  <Sparkle className="-bottom-[31px] -left-[31px]" />
+                </div>
+              </div>
+              <Sparkle className="-right-[24px] -top-[2px]" />
+            </div>
           </PageReveal>
 
           <div className="flex flex-col gap-[100px]">

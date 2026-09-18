@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Caveat, Geist, Geist_Mono } from "next/font/google";
 import localFont from "next/font/local";
 import { LoadingIntro } from "@/components/LoadingIntro";
 import { CustomCursor } from "@/components/CustomCursor";
@@ -12,6 +12,13 @@ const geistSans = Geist({
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+// Web stand-in for "Figma Hand", the handwriting face used in the About
+// polaroid caption (Figma's own font isn't available to self-host).
+const caveat = Caveat({
+  variable: "--font-caveat",
   subsets: ["latin"],
 });
 
@@ -30,7 +37,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${magnaEF.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${magnaEF.variable} ${caveat.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <LoadingIntro />
