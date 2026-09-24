@@ -65,20 +65,6 @@ const bookCovers = [
   { src: "/about/book-crime-and-punishment.jpg", alt: "Crime and Punishment by Fyodor Dostoevsky" },
 ];
 
-// Decorative four-point star that overlaps a polaroid corner. The asset is
-// mirrored horizontally to match the Figma frame (node 311:3330 / 311:3334).
-function Sparkle({ className }: { className: string }) {
-  return (
-    // eslint-disable-next-line @next/next/no-img-element
-    <img
-      src="/about/sparkle.svg"
-      alt=""
-      aria-hidden="true"
-      className={`pointer-events-none absolute h-[61px] w-[60.9px] -scale-x-100 ${className}`}
-    />
-  );
-}
-
 function GalleryRow({ images }: { images: GalleryImage[] }) {
   return (
     <div className="flex w-full flex-col items-start gap-[15px] sm:flex-row sm:gap-[16px]">
@@ -168,10 +154,8 @@ export default function AboutPage() {
                   <p className="font-handwriting text-[20px] leading-5 text-black">
                     Nice to meet you!
                   </p>
-                  <Sparkle className="-bottom-[31px] -left-[31px]" />
                 </div>
               </div>
-              <Sparkle className="-right-[24px] -top-[2px]" />
             </div>
           </PageReveal>
 
