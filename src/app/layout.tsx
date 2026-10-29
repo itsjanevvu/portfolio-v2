@@ -3,6 +3,7 @@ import { Caveat, Geist, Geist_Mono } from "next/font/google";
 import localFont from "next/font/local";
 import { LoadingIntro } from "@/components/LoadingIntro";
 import { CustomCursor } from "@/components/CustomCursor";
+import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -44,6 +45,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <CustomCursor />
         {children}
       </body>
+      <GoogleAnalytics />
     </html>
   );
 }
